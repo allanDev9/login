@@ -30,7 +30,7 @@ export function Login({ setUser, setLoading }) {
         <div className='user-name'>
         <input
           className='input-name'
-          type="text"
+          type="text" placeholder='Nombre de usuario'
           value={name}
           onChange={e => setName(e.target.value)}
           
@@ -40,7 +40,7 @@ export function Login({ setUser, setLoading }) {
         <div className='user-name'>
         <input
           className='input-password'
-          type="password" 
+          type="password" placeholder='Contraseña'
           value ={password}
           onChange={e => setPassword(e.target.value)}
         />
