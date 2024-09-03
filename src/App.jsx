@@ -17,7 +17,7 @@ function App() {
         !user.length > 0 ? 
           <Login setUser={setUser} setLoading={setLoading} /> 
           : 
-          <Home user={user} />
+          <Home user={user} setUser={setUser}/>
       )}
     </div>
   )

@@ -1,0 +1,94 @@
+.btnLogout{
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    background-color: rgb(191, 191, 191);
+    color: black;
+    font-weight: bold;
+}
+.btnLogout:hover{
+    background-color: rgb(162, 162, 192);
+}
+.ImagenMidu{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+               
+.titlePerfil{
+    position: absolute;
+    top:30px;
+    left: 110px;
+    color: beige;
+    font-size: 25px;
+}
+/* Configuración del menú inicial: solo íconos visibles */
+.Menu {
+    position: fixed;
+    top: 100px;
+    left: 2px;
+    font-size: 30px;
+    color: beige;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté encima del contenido */
+    transition: transform 0.3s ease;
+    font-size: 40px;
+}
+
+.MenuItems {
+    position: fixed;
+    top: 100px;
+    left: -200px; /* Coloca el menú fuera de la vista inicialmente */
+    width: 200px; /* Ajusta el ancho del menú */
+    overflow: hidden;
+    height: 100%;
+    background-color:#838282;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.3s ease;
+    opacity: 50%;
+}
+
+.MenuItems ul {
+    list-style: none;
+    padding: 6;
+    margin: 6;
+    width: 100%;
+}
+
+.MenuItems ul li {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.MenuItems ul li span {
+    margin-left: 10px;
+    display: none; /* Oculta el texto del ítem inicialmente */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.MenuItems.open {
+    transform: translateX(200px); /* Desplaza el menú a la vista */
+    width: 200px;
+}
+
+.MenuItems.open ul li span {
+    display: inline-block;
+    opacity: 1; /* Muestra el texto de los ítems cuando el menú está abierto */
+}
+
+.Menu.open {
+    transform: translateX(200px) rotate(90deg); /* Alinea el ícono del menú con el menú abierto */
+}
