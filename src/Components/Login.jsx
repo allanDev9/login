@@ -34,7 +34,7 @@ export function Login({ setUser, setLoading }) {
     setTimeout(() => {
       setLoading(false)  // Desactivar loading después de 5 segundos
       setUser([name])
-    }, 3000)
+    }, 1000)
     
   }
 
