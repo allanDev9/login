@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './css/Home.css';
-import midudev from './img/Imagen anonima.webp';
 import { AiOutlineLeft } from "react-icons/ai";
 import { IoHome } from "react-icons/io5";
 import { MdAnalytics } from "react-icons/md";
@@ -10,16 +9,31 @@ import { MdLogout } from "react-icons/md";
 
 export function Home({ user, setUser }) {
     const [isOpen, setIsOpen] = useState(true);
-    const [activeSection, setActiveSection] = useState('home')
+    const [activeSection, setActiveSection] = useState('home');
+
+    const generateAvatarSVG = () => {
+        const colors = ['black'];
+        const isColor = colors[colors.length];
+      
+        return `
+          <svg width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+            <rect width="70" height="70" fill="${isColor}" />
+            <text x="35" y="40" font-size="15" text-anchor="middle" fill="#FFF">${user ? user[0].toUpperCase() : '?'}</text>
+          </svg>
+        `;
+      };
+      
+      // Convertir SVG a base64
+      const avatarUrl = `data:image/svg+xml;base64,${btoa(generateAvatarSVG())}`;
 
     const handleLogout = () => {
-        confirm('Seguro que quieres cerrar sesión?')
+        if (confirm('Seguro que quieres cerrar sesión?')) {
             setUser([]);
+        }
     };
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
-        return 
     };
 
     const renderContent = () => {
@@ -42,14 +56,14 @@ export function Home({ user, setUser }) {
             <div className='sidebar'>
                 <img className='ImagenMidu'
                     style={{ width: 70, height: 70, borderRadius: 999 }} 
-                    src={midudev} 
-                    alt="Imagen de midudev" 
+                    src={avatarUrl} 
+                    alt="Foto de perfil" 
                 />
-                <h2 className='titlePerfil'>{user}</h2>
+                <h2 className='titlePerfil'>{user || 'Usuario'}</h2>
                 <nav className={`MenuItems ${isOpen ? 'open' : ''}`}>
                     <ul>
-                        <li>
-                            <IoHome style={{ marginRight: 10 }} />
+                        <li className={activeSection === 'home' ? 'selected' : ''}>
+                            <IoHome className='Icono'  style={{ marginRight: 10 }} />
                             <span>
                                 <a 
                                 style={{color: 'white'}} 
@@ -61,19 +75,19 @@ export function Home({ user, setUser }) {
                                 </a>
                             </span>
                         </li>
-                        <li>
-                            <MdAnalytics style={{ marginRight: 10 }} />
+                        <li className={activeSection === 'estadisticas' ? 'selected' : ''}>
+                            <MdAnalytics className='Icono' style={{ marginRight: 10 }} />
                             <span>
                                 <a 
                                 style={{color: 'white'}} 
                                 href='#'
                                 onClick={() => setActiveSection('estadisticas')}
                                 >
-                                    Estadisticas
+                                    Estadísticas
                                 </a>
                             </span>
                         </li>
-                        <li>
+                        <li className={activeSection === 'ayuda' ? 'selected' : ''}>
                             <IoIosHelpCircle style={{ marginRight: 10 }} />
                             <span>
                                 <a 
@@ -90,7 +104,7 @@ export function Home({ user, setUser }) {
                     <hr className='separador' />
                     
                     <ul className="secundaryLinks">
-                        <li style={{position: 'relative', top: '305px'}}>
+                        <li className={activeSection === 'configuracion' ? 'selected' : ''} style={{position: 'relative', top: '305px'}}>
                             <IoIosSettings style={{ marginRight: 10 }}/>
                             <span>
                                 <a 
@@ -116,7 +130,6 @@ export function Home({ user, setUser }) {
                     <AiOutlineLeft />
                 </div>
 
-                {/* Aquí se muestra el contenido dinámicamente */}
                 <div className="main-content">
                     {renderContent()}
                 </div>
@@ -125,3 +138,4 @@ export function Home({ user, setUser }) {
         </section>
     );
 }
+

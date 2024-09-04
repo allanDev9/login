@@ -138,3 +138,7 @@
     height: 1200px;
     background: linear-gradient(rgb(169, 166, 166), rgb(55, 55, 72))
 }
+.selected,.icono,.selected a{
+    color: #0644af !important;
+    font-weight: bold;
+}
