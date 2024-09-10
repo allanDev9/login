@@ -1,6 +1,6 @@
 export function Estadisticas(){
      return (
-         <div>Estadisticas</div>
+         <h1 className="titleEstadisticas">Estas son las estadisticas</h1>
         )
 }
 

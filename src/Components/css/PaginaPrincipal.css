@@ -86,6 +86,7 @@
     transform: translateX(200px); /* Desplaza el menú a la vista */
     width: 290px;
     transition: all 0.5s ease;
+    opacity: 100%;
 }
 
 .MenuItems.open ul li span {
@@ -136,7 +137,22 @@
     left: 20%;
     width: 1200px;
     height: 1200px;
-    background: linear-gradient(rgb(169, 166, 166), rgb(55, 55, 72))
+    background: linear-gradient(rgb(191, 191, 191), rgb(110, 110, 121))
+}
+.main-content,.titleHome,.titleEstadisticas,.titleConfiguracion,.titleAyuda{
+    font-size: 40px;
+    font-weight: bold;
+}
+/* Estilo al hacer hover sobre los elementos del menú */
+.MenuItems ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    
+}
+/* Estilos para los textos dentro de los items */
+.MenuItems ul li span:hover {
+    text-decoration: none;
+    cursor: pointer;
 }
 .selected,.icono,.selected a{
     color: #0644af !important;

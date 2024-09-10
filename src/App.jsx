@@ -1,5 +1,5 @@
 import { Login } from './Components/login'
-import { Home } from './Components/Home'
+import { PaginaPrincipal } from './Components/PaginaPrincipal'
 import { useState } from 'react'
 import './css/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,7 +17,7 @@ function App() {
         !user.length > 0 ? 
           <Login setUser={setUser} setLoading={setLoading} /> 
           : 
-          <Home user={user} setUser={setUser}/>
+          <PaginaPrincipal user={user} setUser={setUser}/>
       )}
     </div>
   )
